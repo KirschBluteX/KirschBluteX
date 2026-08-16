@@ -16,11 +16,11 @@ across Pi, Codex, MCP/A2A, OpenHands, Microsoft Agent Framework, and LiteLLM.
 
 ```mermaid
 flowchart TD
-  F["Concurrency · restart · partial side effects · protocol change"]
-  F --> P["Execution authority and recovery<br/>Pi Coding Harness"]
-  F --> A["Delegation and integration<br/>Agent Orchestration Gateway"]
-  F --> E["Engineering decisions and evaluation<br/>Engineer Software"]
-  P --> R["Explicit state · bounded authority · reproducible evidence"]
+  F["Failure conditions<br/>concurrency · restart · side effects · protocol change"]
+  F --> P["PCH<br/>execution · recovery"]
+  F --> A["AOG<br/>delegation · integration"]
+  F --> E["Engineer Software<br/>decisions · evaluation"]
+  P --> R["Trusted system state<br/>bounded authority · fresh evidence"]
   A --> R
   E --> R
 ```

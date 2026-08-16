@@ -14,11 +14,11 @@ LiteLLM 等上游工程实践，持续验证这一层的设计原则。
 
 ```mermaid
 flowchart TD
-  F["并发 · 重启 · 部分副作用 · 协议变化"]
-  F --> P["执行 authority 与恢复<br/>Pi Coding Harness"]
-  F --> A["委派与集成<br/>Agent Orchestration Gateway"]
-  F --> E["工程决策与评测<br/>Engineer Software"]
-  P --> R["显式状态 · 有界 authority · 可复现证据"]
+  F["故障条件<br/>并发 · 重启 · 部分副作用 · 协议变化"]
+  F --> P["PCH<br/>执行 · 恢复"]
+  F --> A["AOG<br/>委派 · 集成"]
+  F --> E["Engineer Software<br/>决策 · 评测"]
+  P --> R["可信系统状态<br/>有界权限 · 最新证据"]
   A --> R
   E --> R
 ```
