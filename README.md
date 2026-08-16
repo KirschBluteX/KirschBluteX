@@ -28,6 +28,9 @@ flowchart TD
   R["Trusted system state<br/>bounded authority · fresh evidence"]
   F --> S
   S --> R
+  R ~~~ Z["<br/><br/><br/>"]
+  style S fill:transparent
+  style Z fill:transparent,stroke:transparent,color:transparent
 ```
 
 ### [Pi Coding Harness](https://github.com/KirschBluteX/pi-coding-harness)

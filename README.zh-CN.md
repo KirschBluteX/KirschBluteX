@@ -26,6 +26,9 @@ flowchart TD
   R["可信系统状态<br/>有界权限 · 最新证据"]
   F --> S
   S --> R
+  R ~~~ Z["<br/><br/><br/>"]
+  style S fill:transparent
+  style Z fill:transparent,stroke:transparent,color:transparent
 ```
 
 ### [Pi Coding Harness](https://github.com/KirschBluteX/pi-coding-harness)
