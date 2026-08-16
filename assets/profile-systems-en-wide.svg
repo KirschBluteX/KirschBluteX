@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400"
+  role="img" aria-labelledby="title desc">
+  <title id="title">AI coding-agent systems map</title>
+  <desc id="desc">Failure conditions pass through three complementary system boundaries into trusted state.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2328; text-anchor: middle; }
+    .title { font-size: 24px; font-weight: 700; }
+    .compact { font-size: 21px; }
+    .body { font-size: 18px; }
+    .group { font-size: 17px; font-weight: 700; fill: #57606a; }
+    .arrow { fill: none; stroke: #57606a; stroke-width: 2.5; marker-end: url(#arrow); }
+  </style>
+  <rect width="1200" height="400" fill="#ffffff"/>
+  <rect x="380" y="18" width="440" height="82" rx="6" fill="#ffebe9" stroke="#cf222e" stroke-width="2"/>
+  <text class="title" x="600" y="50">Failure conditions</text>
+  <text class="body" x="600" y="79">concurrency · restart · side effects · protocol change</text>
+  <path class="arrow" d="M 600 100 L 600 126"/>
+  <rect x="20" y="126" width="1160" height="145" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="2"/>
+  <text class="group" x="600" y="151">THREE COMPLEMENTARY SYSTEM BOUNDARIES</text>
+  <rect x="50" y="165" width="330" height="88" rx="6" fill="#dafbe1" stroke="#1a7f37" stroke-width="2"/>
+  <text class="title" x="215" y="198">Pi Coding Harness</text>
+  <text class="body" x="215" y="228">execution authority · recovery</text>
+  <rect x="435" y="165" width="330" height="88" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="2"/>
+  <text class="title compact" x="600" y="198">Agent Orchestration Gateway</text>
+  <text class="body" x="600" y="228">delegation · integration</text>
+  <rect x="820" y="165" width="330" height="88" rx="6" fill="#fff8c5" stroke="#9a6700" stroke-width="2"/>
+  <text class="title" x="985" y="198">Engineer Software</text>
+  <text class="body" x="985" y="228">decisions · evaluation</text>
+  <path class="arrow" d="M 600 271 L 600 300"/>
+  <rect x="400" y="300" width="400" height="82" rx="6" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+  <text class="title" x="600" y="332">Trusted system state</text>
+  <text class="body" x="600" y="361">bounded authority · fresh evidence</text>
+</svg>

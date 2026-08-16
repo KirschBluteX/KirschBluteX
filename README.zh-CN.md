@@ -12,24 +12,11 @@ LiteLLM 等上游工程实践，持续验证这一层的设计原则。
 
 ## 我构建的系统
 
-```mermaid
-flowchart TD
-  F["故障条件<br/>并发 · 重启 · 部分副作用 · 协议变化"]
-  subgraph S["三个互补的系统边界"]
-    direction TB
-    P["PCH · 执行 · 恢复"]
-    A["AOG · 委派 · 集成"]
-    E["Engineer Software · 决策 · 评测"]
-    P ~~~ A
-    A ~~~ E
-  end
-  R["可信系统状态<br/>有界权限 · 最新证据"]
-  F --> S
-  S --> R
-  R ~~~ Z["<br/><br/><br/>"]
-  style S fill:transparent
-  style Z fill:transparent,stroke:transparent,color:transparent
-```
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/profile-systems-zh-mobile.svg">
+  <img src="assets/profile-systems-zh-wide.svg" width="100%"
+    alt="故障条件经过三个互补的系统边界，形成可信系统状态。">
+</picture>
 
 ### [Pi Coding Harness](https://github.com/KirschBluteX/pi-coding-harness)
 
@@ -48,7 +35,7 @@ fencing token、preimage、postimage 与重新执行的验证器，再由带事�
 lease/fencing · fault injection
 
 [架构](https://github.com/KirschBluteX/pi-coding-harness/blob/main/docs/ARCHITECTURE.md) ·
-[验证证据](https://github.com/KirschBluteX/pi-coding-harness/actions/runs/31951570773)
+[验证证据](https://github.com/KirschBluteX/pi-coding-harness/actions/runs/31958661105)
 
 ### [Agent Orchestration Gateway](https://github.com/KirschBluteX/agent-orchestration-gateway)
 

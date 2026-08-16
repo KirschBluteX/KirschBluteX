@@ -14,24 +14,11 @@ across Pi, Codex, MCP/A2A, OpenHands, Microsoft Agent Framework, and LiteLLM.
 
 ## Systems
 
-```mermaid
-flowchart TD
-  F["Failure conditions<br/>concurrency · restart · side effects · protocol change"]
-  subgraph S["Three complementary system boundaries"]
-    direction TB
-    P["PCH · execution · recovery"]
-    A["AOG · delegation · integration"]
-    E["Engineer Software · decisions · evaluation"]
-    P ~~~ A
-    A ~~~ E
-  end
-  R["Trusted system state<br/>bounded authority · fresh evidence"]
-  F --> S
-  S --> R
-  R ~~~ Z["<br/><br/><br/>"]
-  style S fill:transparent
-  style Z fill:transparent,stroke:transparent,color:transparent
-```
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/profile-systems-en-mobile.svg">
+  <img src="assets/profile-systems-en-wide.svg" width="100%"
+    alt="Failure conditions pass through three complementary system boundaries into trusted state.">
+</picture>
 
 ### [Pi Coding Harness](https://github.com/KirschBluteX/pi-coding-harness)
 
@@ -52,7 +39,7 @@ reconciles unknown side effects before authorizing exactly one next action.
 leases and fencing · fault injection
 
 [Architecture](https://github.com/KirschBluteX/pi-coding-harness/blob/main/docs/ARCHITECTURE.md) ·
-[Verification evidence](https://github.com/KirschBluteX/pi-coding-harness/actions/runs/31951570773)
+[Verification evidence](https://github.com/KirschBluteX/pi-coding-harness/actions/runs/31958661105)
 
 ### [Agent Orchestration Gateway](https://github.com/KirschBluteX/agent-orchestration-gateway)
 
