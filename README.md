@@ -1,6 +1,6 @@
 # KirschQAQ
 
-## Graduate Student at USTC · Reliable AI Agent Systems
+## Graduate Student at USTC · AI Agent Systems
 
 Agent Runtimes · Multi-Agent Orchestration · MCP/A2A · Recovery · Reproducible Evaluation
 
@@ -22,7 +22,7 @@ and executable regression evidence.
 
 | Area | Questions I work on |
 | --- | --- |
-| **Reliable agent runtimes** | Concurrency, cancellation, persistence, recovery, and browser/sandbox lifecycle |
+| **agent runtimes** | Concurrency, cancellation, persistence, recovery, and browser/sandbox lifecycle |
 | **Multi-agent orchestration** | Parallel execution, scheduling, isolation, integration authority, and background task lifecycle |
 | **Protocol interoperability** | MCP/A2A versioning, task semantics, event delivery, and cross-SDK consistency |
 | **Reproducible evaluation** | Minimal reproductions, regression tests, fault injection, benchmarks, and evidence boundaries |
