@@ -15,12 +15,17 @@ LiteLLM 等上游工程实践，持续验证这一层的设计原则。
 ```mermaid
 flowchart TD
   F["故障条件<br/>并发 · 重启 · 部分副作用 · 协议变化"]
-  F --> P["PCH<br/>执行 · 恢复"]
-  F --> A["AOG<br/>委派 · 集成"]
-  F --> E["Engineer Software<br/>决策 · 评测"]
-  P --> R["可信系统状态<br/>有界权限 · 最新证据"]
-  A --> R
-  E --> R
+  subgraph S["三个互补的系统边界"]
+    direction TB
+    P["PCH · 执行 · 恢复"]
+    A["AOG · 委派 · 集成"]
+    E["Engineer Software · 决策 · 评测"]
+    P ~~~ A
+    A ~~~ E
+  end
+  R["可信系统状态<br/>有界权限 · 最新证据"]
+  F --> S
+  S --> R
 ```
 
 ### [Pi Coding Harness](https://github.com/KirschBluteX/pi-coding-harness)

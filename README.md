@@ -17,12 +17,17 @@ across Pi, Codex, MCP/A2A, OpenHands, Microsoft Agent Framework, and LiteLLM.
 ```mermaid
 flowchart TD
   F["Failure conditions<br/>concurrency · restart · side effects · protocol change"]
-  F --> P["PCH<br/>execution · recovery"]
-  F --> A["AOG<br/>delegation · integration"]
-  F --> E["Engineer Software<br/>decisions · evaluation"]
-  P --> R["Trusted system state<br/>bounded authority · fresh evidence"]
-  A --> R
-  E --> R
+  subgraph S["Three complementary system boundaries"]
+    direction TB
+    P["PCH · execution · recovery"]
+    A["AOG · delegation · integration"]
+    E["Engineer Software · decisions · evaluation"]
+    P ~~~ A
+    A ~~~ E
+  end
+  R["Trusted system state<br/>bounded authority · fresh evidence"]
+  F --> S
+  S --> R
 ```
 
 ### [Pi Coding Harness](https://github.com/KirschBluteX/pi-coding-harness)
