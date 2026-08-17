@@ -27,7 +27,7 @@
   <text class="body" x="215" y="228">执行权限 · 恢复</text>
   <rect x="435" y="165" width="330" height="88" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="2"/>
   <text class="title compact" x="600" y="198">Agent Orchestration Gateway</text>
-  <text class="body" x="600" y="228">委派 · 集成</text>
+  <text class="body" x="600" y="228">委派 · 提交组装</text>
   <rect x="820" y="165" width="330" height="88" rx="6" fill="#fff8c5" stroke="#9a6700" stroke-width="2"/>
   <text class="title" x="985" y="198">Engineer Software</text>
   <text class="body" x="985" y="228">工程决策 · 评测</text>

@@ -1,12 +1,12 @@
 # KirschQAQ
 
-**中国科学技术大学研究生，构建 AI Coding Agent 的执行与控制基础设施。**
+**中国科学技术大学研究生，构建可靠的 AI Coding Agent 执行、编排与评测基础设施。**
 
-Prompt 决定 Agent 试图做什么；运行时基础设施决定系统在并发 worker、进程重启、部分副作用或协议变化
+Prompt 决定 Agent 试图做什么；执行、编排与评测边界决定系统在并发协作、中断、部分副作用或协议变化
 之后还能信任什么。我通过自己的系统和 Pi、Codex、MCP/A2A、OpenHands、Microsoft Agent Framework、
-LiteLLM 等上游工程实践，持续验证这一层的设计原则。
+LiteLLM 等上游工程实践，持续验证这些边界的设计原则。
 
-> 设计原则：Agent 输出只是候选方案；持久状态、明确的权限边界和最新验证，才使结果成为系统事实。
+> 设计原则：Agent 输出只是候选方案；明确的状态所有权、有界 scope 与最新验证，才使结果成为系统事实。
 
 [English](README.md)
 
@@ -39,20 +39,26 @@ lease/fencing · fault injection
 
 ### [Agent Orchestration Gateway](https://github.com/KirschBluteX/agent-orchestration-gateway)
 
-**Codex 原生 Agents 的确定性准入、调度与集成控制平面。**
+**面向软件工程的原生 Agent 编排协议，以 Codex Skill 落地。**
 
-AOG 用 schema 校验封闭的 delegation DAG，再将其编译为当前 Host 确实具备能力执行的路线。Codex Hooks
-把每次 prepared dispatch 与持久 wave、lifecycle、receipt 状态绑定，覆盖 spawn、reuse、retry、restart
-与 completion；guarded plan 会获得独立路由的最终 reviewer。
+AOG 把我在 Codex Agent 上工作的流程边界编码成可执行契约。Primary 先澄清 software initiative，提出
+写入 scope 互不重叠且通过 schema 校验的模块 DAG，再把用户确认的模块派发为 Codex 原生 task。有界的
+标准库 validator 会在派发前拒绝依赖环、歧义路径、重复 JSON key 与 scope overlap。
 
-只有写入 scope 两两不相交的 cooperative writer 才会被准入。它们在受管 Git worktree 或有界 workspace
-copy 中执行，随后进入带 staged backup、冲突检查和显式 rollback 的日志化集成路径。这些控制包裹在
-Codex 原生 Agents 周围，不再引入第二套 Agent runtime。
+它也是我熟悉 Host-level workflow 的直接证据：approval、task creation、worktree isolation、Goal/wait
+lifecycle、native subagent 与 commit assembly，都被对齐到 Codex 的实际 primitive，而不是在旁边模拟一套
+平行 runtime。
 
-**核心机制：** Python · Codex Hooks · typed delegation DAG · capability-aware routing · Git
-worktree · durable receipt · journaled rollback
+task、worktree、Goal、wait 与 native subagent 都被视为 Codex 所有的 lifecycle primitive。AOG 只负责
+approval、dependency、write scope 与 review policy；验收后的模块 commit 再按拓扑顺序组装到专用本地
+delivery branch。它增加监督与 ownership 规则，但不重建第二套 Agent runtime 或 lifecycle ledger。
 
-[Benchmark 协议](https://github.com/KirschBluteX/agent-orchestration-gateway/blob/main/docs/BENCHMARK.md)
+**核心机制：** Python · stateless JSON validation · module DAG · disjoint write scope · Codex
+原生 task/worktree · bounded subagent · topological commit assembly
+
+[工作流](https://github.com/KirschBluteX/agent-orchestration-gateway/blob/main/README.zh-CN.md#工作流) ·
+[Validator 测试](https://github.com/KirschBluteX/agent-orchestration-gateway/tree/main/tests) ·
+[CI 证据](https://github.com/KirschBluteX/agent-orchestration-gateway/actions/runs/31979472987)
 
 ### [Engineer Software](https://github.com/KirschBluteX/engineer-software)
 
@@ -118,10 +124,10 @@ deprecation 和 pagination。映射 endpoint 测试通过 188 项，当前 GitHu
 - **Runtime authority：**
   [PCH 架构](https://github.com/KirschBluteX/pi-coding-harness/blob/main/docs/ARCHITECTURE.md)
   记录进程所有权、持久状态、mutation authority、恢复优先级与串行集成边界。
-- **编排实验：**
-  [AOG benchmark 协议](https://github.com/KirschBluteX/agent-orchestration-gateway/blob/main/docs/BENCHMARK.md)
-  固定 FeatureBench revision、任务与验收 hash、成对执行 arm、按路线拆分的 usage accounting，并对不完整
-  study 采取 fail-closed 处理。
+- **编排契约：**
+  [AOG 工作流与计划校验](https://github.com/KirschBluteX/agent-orchestration-gateway/blob/main/README.zh-CN.md#计划校验)
+  明确用户确认、互不重叠的写入 scope、有界原生委派与本地拓扑组装；validator 测试覆盖依赖环、路径安全、
+  重复 JSON key、输入上限、scope overlap 与确定性规范化。
 - **工作流评测：**
   [Engineer Software evaluation suite](https://github.com/KirschBluteX/engineer-software/blob/main/evals/README.md)
   将确定性 routing contract 与 matched-worktree behavior comparison 结合，并保留原始 event、patch、耗时、

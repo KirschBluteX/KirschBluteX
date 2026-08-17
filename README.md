@@ -1,14 +1,15 @@
 # KirschQAQ
 
-**Graduate student at USTC building execution and control infrastructure for AI coding agents.**
+**Graduate student at USTC building reliable execution, orchestration, and evaluation
+infrastructure for AI coding agents.**
 
-Prompts determine what an agent attempts; runtime infrastructure determines what the system can
-trust after concurrent workers, process restarts, partial side effects, or protocol changes. I build
-that infrastructure in my own systems and test the same design principles through upstream work
-across Pi, Codex, MCP/A2A, OpenHands, Microsoft Agent Framework, and LiteLLM.
+Prompts determine what an agent attempts; execution, orchestration, and evaluation boundaries
+determine what a team can trust after concurrent work, interruption, partial side effects, or
+protocol change. I build those boundaries in my own systems and test the same design principles
+through upstream work across Pi, Codex, MCP/A2A, OpenHands, Microsoft Agent Framework, and LiteLLM.
 
-> Design rule: agent output is a proposal. Authority comes from durable state, explicit scope, and
-> fresh evidence.
+> Design rule: agent output is a proposal. Authority comes from explicit state ownership, bounded
+> scope, and fresh evidence.
 
 [简体中文](README.zh-CN.md)
 
@@ -43,22 +44,28 @@ leases and fencing · fault injection
 
 ### [Agent Orchestration Gateway](https://github.com/KirschBluteX/agent-orchestration-gateway)
 
-**A deterministic admission, scheduling, and integration control plane for Codex native Agents.**
+**A native-agent orchestration protocol for software work, implemented as a Codex Skill.**
 
-AOG compiles a closed, schema-validated delegation DAG into routes that the live host can actually
-execute. Codex Hooks bind each prepared dispatch to durable wave, lifecycle, and receipt state
-across spawn, reuse, retry, restart, and completion. Guarded plans receive an independently routed
-final reviewer.
+AOG encodes the workflow boundary I use when building with Codex Agents. Primary clarifies a software
+initiative, proposes a schema-validated module DAG with non-overlapping repository scopes, and
+dispatches approved modules as native Codex tasks. A bounded standard-library validator rejects
+cycles, ambiguous paths, duplicate keys, and scope overlap before dispatch.
 
-It admits cooperative writers only when their scopes are pairwise disjoint. They execute inside
-managed Git worktrees or bounded workspace copies, then enter a journaled integration path with
-staged backups, conflict detection, and explicit rollback. These controls sit around Codex native
-Agents instead of introducing a second Agent runtime.
+It is also practical evidence of host-level familiarity: approval, task creation, worktree isolation,
+Goal/wait lifecycle, native subagents, and commit assembly are mapped onto Codex's actual primitives
+instead of simulated in a parallel runtime.
 
-**Core mechanisms:** Python · Codex Hooks · typed delegation DAGs · capability-aware routing · Git
-worktrees · durable receipts · journaled rollback
+The design choice is deliberate: task, worktree, Goal, wait, and native subagent are treated as
+Codex-owned lifecycle primitives. AOG owns approval, dependency, write-scope, and review policy;
+accepted module commits are assembled topologically on a dedicated local delivery branch. It adds
+supervision and ownership rules without rebuilding a second Agent runtime or lifecycle ledger.
 
-[Benchmark protocol](https://github.com/KirschBluteX/agent-orchestration-gateway/blob/main/docs/BENCHMARK.md)
+**Core mechanisms:** Python · stateless JSON validation · module DAGs · disjoint write scopes ·
+native Codex tasks and worktrees · bounded subagents · topological commit assembly
+
+[Workflow](https://github.com/KirschBluteX/agent-orchestration-gateway#workflow) ·
+[Validator tests](https://github.com/KirschBluteX/agent-orchestration-gateway/tree/main/tests) ·
+[CI evidence](https://github.com/KirschBluteX/agent-orchestration-gateway/actions/runs/31979472987)
 
 ### [Engineer Software](https://github.com/KirschBluteX/engineer-software)
 
@@ -130,10 +137,11 @@ ASP.NET Core tests.
   [PCH architecture](https://github.com/KirschBluteX/pi-coding-harness/blob/main/docs/ARCHITECTURE.md)
   documents process ownership, durable state, mutation authority, recovery precedence, and the
   serial integration boundary.
-- **Orchestration experiments:** the
-  [AOG benchmark protocol](https://github.com/KirschBluteX/agent-orchestration-gateway/blob/main/docs/BENCHMARK.md)
-  pins FeatureBench revisions, task and acceptance hashes, paired execution arms, route-specific
-  usage accounting, and fail-closed handling of incomplete studies.
+- **Orchestration contract:** the
+  [AOG workflow and plan validator](https://github.com/KirschBluteX/agent-orchestration-gateway#plan-validation)
+  define explicit approval, non-overlapping write scopes, bounded native delegation, and local
+  topological assembly. Validator tests cover cycles, path safety, duplicate keys, input bounds,
+  scope overlap, and deterministic normalization.
 - **Workflow evaluation:** the
   [Engineer Software evaluation suite](https://github.com/KirschBluteX/engineer-software/blob/main/evals/README.md)
   combines deterministic routing contracts with matched-worktree behavior comparisons and preserves
