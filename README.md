@@ -44,7 +44,7 @@ leases and fencing · fault injection
 
 ### [Agent Orchestration Gateway](https://github.com/KirschBluteX/agent-orchestration-gateway)
 
-**A native-agent orchestration protocol for software work, implemented as a Codex Skill.**
+**A native-agent orchestration protocol for software work.**
 
 AOG encodes the workflow boundary I use when building with Codex Agents. Primary clarifies a software
 initiative, proposes a schema-validated module DAG with non-overlapping repository scopes, and
