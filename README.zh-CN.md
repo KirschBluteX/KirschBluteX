@@ -39,7 +39,7 @@ lease/fencing · fault injection
 
 ### [Agent Orchestration Gateway](https://github.com/KirschBluteX/agent-orchestration-gateway)
 
-**面向软件工程的原生 Agent 编排协议，以 Codex Skill 落地。**
+**面向软件工程的原生 Agent 编排协议。**
 
 AOG 把我在 Codex Agent 上工作的流程边界编码成可执行契约。Primary 先澄清 software initiative，提出
 写入 scope 互不重叠且通过 schema 校验的模块 DAG，再把用户确认的模块派发为 Codex 原生 task。有界的
