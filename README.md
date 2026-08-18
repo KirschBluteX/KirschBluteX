@@ -13,14 +13,6 @@ through upstream work across Pi, Codex, MCP/A2A, OpenHands, Microsoft Agent Fram
 
 [简体中文](README.zh-CN.md)
 
-## Systems
-
-<picture>
-  <source media="(max-width: 600px)" srcset="assets/profile-systems-en-mobile.svg">
-  <img src="assets/profile-systems-en-wide.svg" width="100%"
-    alt="Failure conditions pass through three complementary system boundaries into trusted state.">
-</picture>
-
 ### [Pi Coding Harness](https://github.com/KirschBluteX/pi-coding-harness)
 
 **A transaction and recovery layer for Pi Coding Agent.**
