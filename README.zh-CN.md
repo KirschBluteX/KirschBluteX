@@ -10,14 +10,6 @@ LiteLLM 等上游工程实践，持续验证这些边界的设计原则。
 
 [English](README.md)
 
-## 我构建的系统
-
-<picture>
-  <source media="(max-width: 600px)" srcset="assets/profile-systems-zh-mobile.svg">
-  <img src="assets/profile-systems-zh-wide.svg" width="100%"
-    alt="故障条件经过三个互补的系统边界，形成可信系统状态。">
-</picture>
-
 ### [Pi Coding Harness](https://github.com/KirschBluteX/pi-coding-harness)
 
 **Pi Coding Agent 的事务与恢复层。**
