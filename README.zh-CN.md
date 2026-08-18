@@ -78,6 +78,10 @@ deterministic routing · paired behavior evaluation
 - **[MudBlazor #13622](https://github.com/MudBlazor/MudBlazor/pull/13622)** 保持空表分页索引的
   非负不变量，并补充回归覆盖。**已合并。**
 
+- **[Cockpit Tools #1944](https://github.com/jlcodes99/cockpit-tools/pull/1944)** 加固 Linux
+  Antigravity 可执行文件发现与启动路径归一化，覆盖配置路径、`PATH`、用户目录、legacy、符号链接
+  与 `bin/` 布局，并加入权限、元数据和进程身份校验。**已合并。**
+
 ### 正在审查的深度实现
 
 **[Microsoft Agent Framework #7679](https://github.com/microsoft/agent-framework/pull/7679) -

@@ -86,6 +86,11 @@ deterministic routing · paired behavior evaluation
 - **[MudBlazor #13622](https://github.com/MudBlazor/MudBlazor/pull/13622)** preserved the
   non-negative page-index invariant for empty tables and added regression coverage. **Merged.**
 
+- **[Cockpit Tools #1944](https://github.com/jlcodes99/cockpit-tools/pull/1944)** hardened Linux
+  Antigravity executable discovery and launch-path normalization across configured, `PATH`,
+  user-local, legacy, symlink, and `bin/` layouts, with permission, metadata, and process-identity
+  validation. **Merged.**
+
 ### Deeper implementations under review
 
 **[Microsoft Agent Framework #7679](https://github.com/microsoft/agent-framework/pull/7679) -
